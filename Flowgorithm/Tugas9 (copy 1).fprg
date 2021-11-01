@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rizky14"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-11-01 08:45:47 PM"/>
+        <attribute name="created" value="cml6a3kxNDsxNDsyMDIxLTExLTAxOzA2OjA0OjM4IFBNOzIwNDQ="/>
+        <attribute name="edited" value="cml6a3kxNDsxNDsyMDIxLTExLTAxOzA4OjQ1OjQ3IFBNOzQ7MjE2Mg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="pilihan, skala, JarakSebenarnya, JarakPeta" type="Integer" array="False" size=""/>
+            <output expression="&quot;1.Hitung Skala&quot;" newline="True"/>
+            <output expression="&quot;2. Hitung Jarak Sebenarnya&quot;" newline="True"/>
+            <output expression="&quot;3. Jarak Sesungguhnya&quot;" newline="True"/>
+            <output expression="&quot;Masukan Pilihan :&quot;" newline="True"/>
+            <input variable="pilihan"/>
+            <if expression="pilihan == 1">
+                <then>
+                    <output expression="&quot;Masukan Jarak peta :&quot;" newline="True"/>
+                    <input variable="JarakPeta"/>
+                    <output expression="&quot;Masukan Jarak Sebenarnya(km) :&quot;" newline="True"/>
+                    <input variable="JarakSebenarnya"/>
+                    <output expression="&quot;Skala adalah 1 : &quot;&amp;HitungSkala(JarakSebenarnya,JarakPeta)" newline="True"/>
+                </then>
+                <else>
+                    <if expression="pilihan == 2">
+                        <then>
+                            <output expression="&quot;Masukan Jarak Peta:&quot;" newline="True"/>
+                            <input variable="JarakPeta"/>
+                            <output expression="&quot;Masukan skala(dalam cm) :&quot;" newline="True"/>
+                            <input variable="skala"/>
+                            <output expression="&quot;Jarak Sebenarnya : &quot;&amp;HitungJarakSebenar(skala,JarakPeta) &amp;&quot; km&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="pilihan == 3">
+                                <then>
+                                    <output expression="&quot;Input ruas(ilustrasi JarakPeta) :&quot;" newline="True"/>
+                                    <input variable="JarakSebenarnya"/>
+                                    <assign variable="JarakSebenarnya" expression="1 * JarakSebenarnya"/>
+                                    <output expression="&quot;Jarak Sebenarnya : &quot;&amp;JarakSebenarnya &amp;&quot; km&quot;" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="HitungJarakSebenar" type="Real" variable="JarakSebenar">
+        <parameters>
+            <parameter name="skala" type="Real" array="False"/>
+            <parameter name="JarakPeta" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="JarakSebenar" type="Real" array="False" size=""/>
+            <assign variable="JarakSebenar" expression="JarakPeta * (skala/100000)"/>
+            <assign variable="JarakSebenar" expression="JarakSebenar / 100000"/>
+        </body>
+    </function>
+    <function name="HitungSkala" type="Real" variable="Skala">
+        <parameters>
+            <parameter name="JarakSebenar" type="Integer" array="False"/>
+            <parameter name="JarakPeta" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="Skala" type="Real" array="False" size=""/>
+            <assign variable="Skala" expression="(JarakSebenar * 100000) / JarakPeta"/>
+        </body>
+    </function>
+</flowgorithm>
